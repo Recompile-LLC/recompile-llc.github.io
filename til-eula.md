@@ -3,12 +3,6 @@
 
 **Last updated** **April 01, 2026**
 
-  
-
-  
-
-  
-
 TIL - Today I Learned is licensed to You (End-User) by Recompile LLC, located and registered at 184 N Lone Rock Dr, B401, Hurricane, Utah 84737, United States ( "**Licensor**"), for use only under the terms of this License Agreement.
 
   
@@ -30,39 +24,39 @@ TIL - Today I Learned when purchased or downloaded through the Services, is lice
   
 ## TABLE OF CONTENTS
 
-[1\. THE APPLICATION](#application)
+[1\. THE APPLICATION](#1-the-application)
 
-[2\. SCOPE OF LICENSE](#scope)
+[2\. SCOPE OF LICENSE](#2-scope-of-license)
 
-[3\. TECHNICAL REQUIREMENTS](#requirements)
+[3\. TECHNICAL REQUIREMENTS](#3-technical-requirements)
 
-[4\. MAINTENANCE AND SUPPORT](#support)
+[4\. MAINTENANCE AND SUPPORT](#4-maintenance-and-support)
 
-[5\. USE OF DATA](#datause)
+[5\. USE OF DATA](#5-use-of-data)
 
-[6\. USER-GENERATED CONTRIBUTIONS](#ugc)
+[6\. USER-GENERATED CONTRIBUTIONS](#6-user-generated-contributions)
 
-[7\. CONTRIBUTION LICENSE](#contribution)
+[7\. CONTRIBUTION LICENSE](#7-contribution-license)
 
-[8\. LIABILITY](#liability)
+[8\. LIABILITY](#8-liability)
 
-[9\. WARRANTY](#warranty)
+[9\. WARRANTY](#9-warranty)
 
-[10\. PRODUCT CLAIMS](#productclaims)
+[10\. PRODUCT CLAIMS](#10-product-claims)
 
-[11\. LEGAL COMPLIANCE](#compliance)
+[11\. LEGAL COMPLIANCE](#11-legal-compliance)
 
-[12\. CONTACT INFORMATION](#contact)
+[12\. CONTACT INFORMATION](#12-contact-information)
 
-[13\. TERMINATION](#termination)
+[13\. TERMINATION](#13-termination)
 
-[14\. THIRD-PARTY TERMS OF AGREEMENTS AND BENEFICIARY](#thirdparty)
+[14\. THIRD-PARTY TERMS OF AGREEMENTS AND BENEFICIARY](#14-third-party-terms-of-agreements-and-beneficiary)
 
-[15\. INTELLECTUAL PROPERTY RIGHTS](#ipr)
+[15\. INTELLECTUAL PROPERTY RIGHTS](#15-intellectual-property-rights)
 
-[16\. APPLICABLE LAW](#law)
+[16\. APPLICABLE LAW](#16-applicable-law)
 
-[17\. MISCELLANEOUS](#misc)
+[17\. MISCELLANEOUS](#17-miscellaneous)
 
 ## 1\. THE APPLICATION
 
