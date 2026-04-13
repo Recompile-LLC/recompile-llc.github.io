@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Recompile LLC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Monaspace+Neon:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: #111318;
+            color: #E6E8EB;
+        }
+
+        body.dark-mode .nav {
+            background-color: rgba(26, 29, 36, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        body.dark-mode .footer {
+            background-color: #0d0f12;
+            border-top: 1px solid #1A1D24;
+        }
+
+        body.dark-mode .footer-bottom {
+            border-top-color: #1A1D24;
+            color: #6F7480;
+        }
+
+        body.light-mode {
+            background-color: #F6F7F9;
+            color: #1A1C21;
+        }
+
+        body.light-mode .nav {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e0e2e6;
+        }
+
+        body.light-mode .footer {
+            background-color: #FFFFFF;
+            border-top: 1px solid #e0e2e6;
+        }
+
+        body.light-mode .footer-bottom {
+            border-top-color: #e0e2e6;
+            color: #9AA0AA;
+        }
+
+        .text-secondary {
+            color: #9AA0AA;
+        }
+
+        body.light-mode .text-secondary {
+            color: #5F6570;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #803AF1;
+            border: 2px solid #803AF1;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(128, 58, 241, 0.1);
+            border-color: #9254f4;
+        }
+
+        h1, h2 {
+            font-family: 'Sora', sans-serif;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-family: 'Sora', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        body.dark-mode .logo-text { color: #E6E8EB; }
+        body.light-mode .logo-text { color: #1A1C21; }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        body.dark-mode .nav-link { color: #E6E8EB; }
+        body.light-mode .nav-link { color: #1A1C21; }
+        .nav-link:hover { color: #803AF1; }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover { opacity: 1; }
+        .theme-toggle svg { width: 20px; height: 20px; }
+        body.dark-mode .theme-toggle svg { stroke: #E6E8EB; }
+        body.light-mode .theme-toggle svg { stroke: #1A1C21; }
+
+        .theme-icon { display: none; }
+        body.dark-mode .sun-icon { display: block; }
+        body.light-mode .moon-icon { display: block; }
+
+        .coming-soon {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+            text-align: center;
+        }
+
+        .coming-soon-content {
+            max-width: 600px;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(128, 58, 241, 0.2), rgba(46, 196, 182, 0.2));
+            border: 1px solid rgba(128, 58, 241, 0.3);
+            color: #803AF1;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 32px;
+        }
+
+        .coming-soon h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .coming-soon p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .footer {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .coming-soon h1 { font-size: 40px; }
+            .coming-soon p { font-size: 18px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.667 10.667C18.667 10.667 10.667 10.667 10.667 18.667V45.333C10.667 53.333 18.667 53.333 18.667 53.333" stroke="#803AF1" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M45.333 10.667C45.333 10.667 53.333 10.667 53.333 18.667V45.333C53.333 53.333 45.333 53.333 45.333 53.333" stroke="#803AF1" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M26.667 21.333C26.667 21.333 21.333 21.333 21.333 26.667V37.333C21.333 42.667 26.667 42.667 26.667 42.667" stroke="#2EC4B6" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M37.333 21.333C37.333 21.333 42.667 21.333 42.667 26.667V37.333C42.667 42.667 37.333 42.667 37.333 42.667" stroke="#2EC4B6" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <span class="logo-text">Recompile</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#products" class="nav-link">Products</a>
+                <a href="index.html#education" class="nav-link">Education</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg class="theme-icon sun-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                    </svg>
+                    <svg class="theme-icon moon-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="coming-soon">
+        <div class="coming-soon-content">
+            <div class="coming-soon-badge">Coming Soon</div>
+            <h1>Courses Are<br><span style="color: #803AF1;">On Their Way</span></h1>
+            <p class="text-secondary">
+                We're building practical, no-nonsense courses to help you learn software development the right way. Check back soon.
+            </p>
+            <a href="mailto:contact@recompile.app" class="btn-secondary">Get Notified</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2025 Recompile LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+            }
+        });
+    </script>
+</body>
+</html>
