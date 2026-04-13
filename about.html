@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Recompile LLC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Monaspace+Neon:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark Mode (Default) */
+        body.dark-mode {
+            background-color: #111318;
+            color: #E6E8EB;
+        }
+
+        body.dark-mode .nav {
+            background-color: rgba(26, 29, 36, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        body.dark-mode .value-card {
+            background-color: #1A1D24;
+            border: 1px solid rgba(128, 58, 241, 0.2);
+        }
+
+        body.dark-mode .value-card:hover {
+            border-color: rgba(128, 58, 241, 0.4);
+            background-color: #1e2129;
+        }
+
+        body.dark-mode .divider {
+            border-color: #1A1D24;
+        }
+
+        body.dark-mode .footer {
+            background-color: #0d0f12;
+            border-top: 1px solid #1A1D24;
+        }
+
+        body.dark-mode .footer-bottom {
+            border-top-color: #1A1D24;
+            color: #6F7480;
+        }
+
+        /* Light Mode */
+        body.light-mode {
+            background-color: #F6F7F9;
+            color: #1A1C21;
+        }
+
+        body.light-mode .nav {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e0e2e6;
+        }
+
+        body.light-mode .value-card {
+            background-color: #FFFFFF;
+            border: 1px solid rgba(128, 58, 241, 0.15);
+        }
+
+        body.light-mode .value-card:hover {
+            border-color: rgba(128, 58, 241, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        body.light-mode .divider {
+            border-color: #e0e2e6;
+        }
+
+        body.light-mode .footer {
+            background-color: #FFFFFF;
+            border-top: 1px solid #e0e2e6;
+        }
+
+        body.light-mode .footer-bottom {
+            border-top-color: #e0e2e6;
+            color: #9AA0AA;
+        }
+
+        /* Shared */
+        .text-secondary {
+            color: #9AA0AA;
+        }
+
+        body.light-mode .text-secondary {
+            color: #5F6570;
+        }
+
+        .text-muted {
+            color: #6F7480;
+        }
+
+        body.light-mode .text-muted {
+            color: #9AA0AA;
+        }
+
+        .primary { color: #803AF1; }
+        .secondary { color: #2EC4B6; }
+
+        .btn-primary {
+            background-color: #803AF1;
+            color: #FFFFFF;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-primary:hover {
+            background-color: #9254f4;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #803AF1;
+            border: 2px solid #803AF1;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(128, 58, 241, 0.1);
+            border-color: #9254f4;
+        }
+
+        h1, h2 {
+            font-family: 'Sora', sans-serif;
+        }
+
+        h3, h4 {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-family: 'Sora', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        body.dark-mode .logo-text { color: #E6E8EB; }
+        body.light-mode .logo-text { color: #1A1C21; }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        body.dark-mode .nav-link { color: #E6E8EB; }
+        body.light-mode .nav-link { color: #1A1C21; }
+        .nav-link:hover { color: #803AF1; }
+        .nav-link.active { color: #803AF1; }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover { opacity: 1; }
+        .theme-toggle svg { width: 20px; height: 20px; }
+        body.dark-mode .theme-toggle svg { stroke: #E6E8EB; }
+        body.light-mode .theme-toggle svg { stroke: #1A1C21; }
+
+        .theme-icon { display: none; }
+        body.dark-mode .sun-icon { display: block; }
+        body.light-mode .moon-icon { display: block; }
+
+        /* Hero */
+        .hero {
+            padding: 160px 40px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #803AF1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            max-width: 800px;
+        }
+
+        .hero .subtitle {
+            font-size: 20px;
+            line-height: 1.7;
+            max-width: 680px;
+        }
+
+        /* Mission */
+        .mission {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .mission-text h2 {
+            font-size: 42px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .mission-text p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .mission-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding-top: 8px;
+        }
+
+        .stat {
+            border-left: 3px solid #803AF1;
+            padding-left: 24px;
+        }
+
+        .stat-number {
+            font-family: 'Sora', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #803AF1;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .stat-desc {
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        /* Divider */
+        .divider {
+            max-width: 1200px;
+            margin: 0 auto;
+            border: none;
+            border-top: 1px solid;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        /* Values */
+        .values {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 56px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            max-width: 560px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .value-card {
+            padding: 32px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .value-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .value-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* What We Do */
+        .what-we-do {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .service-item {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            align-items: start;
+            gap: 32px;
+            padding: 40px 0;
+            border-bottom: 1px solid;
+        }
+
+        body.dark-mode .service-item {
+            border-bottom-color: #1A1D24;
+        }
+
+        body.light-mode .service-item {
+            border-bottom-color: #e0e2e6;
+        }
+
+        .service-item:first-child {
+            border-top: 1px solid;
+        }
+
+        body.dark-mode .service-item:first-child {
+            border-top-color: #1A1D24;
+        }
+
+        body.light-mode .service-item:first-child {
+            border-top-color: #e0e2e6;
+        }
+
+        .service-number {
+            font-family: 'Sora', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #803AF1;
+            padding-top: 4px;
+        }
+
+        .service-body h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .service-body p {
+            font-size: 16px;
+            line-height: 1.7;
+            max-width: 560px;
+        }
+
+        .service-tag {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            white-space: nowrap;
+            margin-top: 4px;
+        }
+
+        .tag-purple {
+            background-color: rgba(128, 58, 241, 0.15);
+            color: #803AF1;
+        }
+
+        .tag-teal {
+            background-color: rgba(46, 196, 182, 0.15);
+            color: #2EC4B6;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 80px 40px 100px;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(128, 58, 241, 0.15) 0%, rgba(46, 196, 182, 0.15) 100%);
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 44px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 36px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 40px; }
+            .hero .subtitle { font-size: 18px; }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .mission-text h2 { font-size: 32px; }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .service-tag { align-self: flex-start; }
+
+            .section-header h2 { font-size: 32px; }
+            .cta-content h2 { font-size: 32px; }
+
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.667 10.667C18.667 10.667 10.667 10.667 10.667 18.667V45.333C10.667 53.333 18.667 53.333 18.667 53.333" stroke="#803AF1" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M45.333 10.667C45.333 10.667 53.333 10.667 53.333 18.667V45.333C53.333 53.333 45.333 53.333 45.333 53.333" stroke="#803AF1" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M26.667 21.333C26.667 21.333 21.333 21.333 21.333 26.667V37.333C21.333 42.667 26.667 42.667 26.667 42.667" stroke="#2EC4B6" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M37.333 21.333C37.333 21.333 42.667 21.333 42.667 26.667V37.333C42.667 42.667 37.333 42.667 37.333 42.667" stroke="#2EC4B6" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <span class="logo-text">Recompile</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#products" class="nav-link">Products</a>
+                <a href="index.html#education" class="nav-link">Education</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg class="theme-icon sun-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                    </svg>
+                    <svg class="theme-icon moon-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <p class="hero-label">About Recompile</p>
+        <h1>Software Built with<br>Clarity & <span style="color: #803AF1;">Intention</span></h1>
+        <p class="subtitle text-secondary">
+            We believe software should be trustworthy, understandable, and genuinely useful. That belief shapes everything we build and every course we write.
+        </p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Mission -->
+    <section class="mission">
+        <div class="mission-grid">
+            <div class="mission-text">
+                <h2>Why We Exist</h2>
+                <p class="text-secondary">
+                    Recompile was founded on a simple premise: too much software is built carelessly, and too much education is padded with noise. Both problems have the same root — a lack of respect for the person on the other end.
+                </p>
+                <p class="text-secondary">
+                    We set out to do the opposite. Every application we ship is designed to be stable, honest about what it does, and maintainable long after launch. Every course we write skips the hype and gets straight to what actually works.
+                </p>
+                <p class="text-secondary">
+                    We're a small company, and we intend to stay deliberate. Growth for its own sake doesn't interest us — quality does.
+                </p>
+            </div>
+            <div class="mission-stats">
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">In-house built</div>
+                    <div class="stat-desc text-secondary">Every product we ship is something we use ourselves first.</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Dark patterns</div>
+                    <div class="stat-desc text-secondary">No manipulative UX. No hidden costs. No misleading copy.</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Real</div>
+                    <div class="stat-label">World focus</div>
+                    <div class="stat-desc text-secondary">Our education is built around problems developers actually face.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Values -->
+    <section class="values">
+        <div class="section-header">
+            <h2>What We Stand For</h2>
+            <p class="text-secondary">The principles that guide every decision we make, from product design to how we teach.</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🔍</div>
+                <h3>Clarity Over Cleverness</h3>
+                <p class="text-secondary">
+                    Clever code impresses no one who has to maintain it at 2am. We write code — and explanations — that are easy to understand, not impressive to look at.
+                </p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Trust as a Feature</h3>
+                <p class="text-secondary">
+                    Trust is earned through consistency. We're upfront about limitations, honest about timelines, and we don't ship things we're not confident in.
+                </p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <h3>Respect for Your Time</h3>
+                <p class="text-secondary">
+                    Bloated software and padded courses are both a waste of your time. We cut what doesn't need to be there and keep what does.
+                </p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🔧</div>
+                <h3>Maintainability Matters</h3>
+                <p class="text-secondary">
+                    Software that works today but is impossible to change tomorrow isn't done. We build things meant to last and teach you how to do the same.
+                </p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">📖</div>
+                <h3>Accessible Learning</h3>
+                <p class="text-secondary">
+                    Great developers aren't born, they're taught well. Our education assumes intelligence but never prior exposure — everyone starts somewhere.
+                </p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">⚖️</div>
+                <h3>Small and Deliberate</h3>
+                <p class="text-secondary">
+                    We don't chase scale for its own sake. Staying small means staying focused on the things that actually matter to our customers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- What We Do -->
+    <section class="what-we-do">
+        <div class="section-header">
+            <h2>What We Do</h2>
+            <p class="text-secondary">Three areas, one consistent standard of quality.</p>
+        </div>
+        <div class="services-list">
+            <div class="service-item">
+                <span class="service-number">01</span>
+                <div class="service-body">
+                    <h3>Applications & Tools</h3>
+                    <p class="text-secondary">
+                        We build in-house software that solves real problems — productivity tools, utilities, and apps designed with genuine care for how people actually use them. Every interface decision is made with clarity and usability in mind, not aesthetics alone.
+                    </p>
+                </div>
+                <span class="service-tag tag-purple">Products</span>
+            </div>
+            <div class="service-item">
+                <span class="service-number">02</span>
+                <div class="service-body">
+                    <h3>Developer Education</h3>
+                    <p class="text-secondary">
+                        Structured courses and tutorials built for adults who want to learn software development without the fluff. We focus on concepts that transfer, examples that are realistic, and explanations that respect your time and intelligence.
+                    </p>
+                </div>
+                <span class="service-tag tag-teal">Education</span>
+            </div>
+            <div class="service-item">
+                <span class="service-number">03</span>
+                <div class="service-body">
+                    <h3>Custom Development</h3>
+                    <p class="text-secondary">
+                        When you need something built to spec, we translate ideas into working software with clear scoping, honest timelines, and maintainable output. We don't take on more than we can do well.
+                    </p>
+                </div>
+                <span class="service-tag tag-purple">Services</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Let's Work Together</h2>
+            <p class="text-secondary">
+                Have a project in mind or want to know more about what we do? We'd like to hear from you.
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:contact@recompile.app" class="btn-primary">Contact Us</a>
+                <a href="index.html" class="btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2025 Recompile LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+            }
+        });
+    </script>
+</body>
+</html>
